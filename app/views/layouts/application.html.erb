@@ -10,10 +10,25 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+<!--
+ 
+$(document).ready(function () {
+ 
+window.setTimeout(function() {
+    $(".notice").fadeTo(1500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 2000);
+ 
+});
+//-->
+</script>
 </head>
 <body>
 <%= render "partials/navbar" %>
-	
+	<div class="notice alert-warning " role="alert"><center><strong><%= notice %></strong></center></div>
+	<div class="notice alert-danger " role="alert"><center><strong><%= alert %></strong></center></div>
 
     <%= yield %>
    
