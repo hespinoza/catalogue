@@ -1,4 +1,7 @@
 class Store < ActiveRecord::Base
+	validates :name, presence: true
+	validates :category, presence: true
+	validates :description, presence: true
   belongs_to :user
   before_save :set_visits_count
 
