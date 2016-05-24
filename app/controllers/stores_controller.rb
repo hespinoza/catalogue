@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :set_store, only: [:show, :edit, :update, :destroy] 
+  before_action :authenticate_user!, except: [:show, :index]
 
   # GET /stores
   # GET /stores.json
@@ -24,7 +25,7 @@ class StoresController < ApplicationController
   # POST /stores
   # POST /stores.json
   def create
-    @store = Store.new(store_params)
+    @store = current_user.stores.new(store_params)
 
     respond_to do |format|
       if @store.save
