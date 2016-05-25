@@ -12,15 +12,15 @@
     <% @stores.each do |store| %>
       
       <div class="container col-lg-6">
-        <div class="well altura">
+        <div class="well">
           <div class="media">
             <a class="pull-left" href="#">
-              <img class="media-object" src="http://placekitten.com/150/150">
+              <img class="media-object img-responsive" src="http://placekitten.com/150/150">
             </a>
             <div class="media-body">
               <h3 class="media-heading"><%= store.name %></h3>
               <h5 class="text-right"><%= store.category %></h5>
-              <p><%= store.description %></p>
+              <p><%= truncate(store.description, length: 100) %></p>
               <div class="col-lg-offset-8">
                   <%= link_to 'Ver Tienda', store, class:"btn btn-primary" %>
               </div>
