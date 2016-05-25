@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.altura{
+	height: 15em;
+}
+.page-header .lista{
+	position: relative;
+	text-align: right;
+}
