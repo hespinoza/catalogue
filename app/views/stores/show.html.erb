@@ -1,28 +1,54 @@
+<div class="container">
+ <div class="page-header">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="bg-picture" style="background-image:url('http://www.tiaralabuan.com/images/seafood.jpg')">
+          <span class="bg-picture-overlay"></span><!-- overlay -->
+          <!-- meta -->
+          <div class="box-layout meta bottom">
+            <div class="col-md-6 clearfix">
+              <span class="img-wrapper pull-left m-r-15"><img src="https://scontent-mia1-1.xx.fbcdn.net/t31.0-8/10498482_10152476499769757_2259911928329161630_o.png" alt="" style="width:64px" class="br-radius"></span>
+              <div class="media-body">
+                <h3 class="text-white mb-2 m-t-10 ellipsis sombreado"><%= @store.name %></h3>
+                <h5 class="text-white sombreado"> <%= @store.category %></h5>
+              </div>
+            </div>
+            <div class="col-md-6">
 
-<p>
-  <strong>User:</strong>
-  <%= @store.user.name %> <%= @store.user.lastname %>
-</p>
+              <div class="pull-right">
+                <div class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle btn btn-primary" href="#" aria-expanded="false"> Following <span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        <li><a href="#">Poke</a></li>
+                        <li><a href="#">Private message</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Unfollow</a></li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/ meta -->
+        </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @store.name %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @store.category %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @store.description %>
-</p>
-
-<p>
-  <strong>Visitas:</strong>
-  <%= @store.visits_count %>
-</p>
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+<div class="panel panel-default">
+  <div class="panel-body descripcion">
+    <%= @store.description %>
+  </div>
+  </div>
+  <div class="jumbotron">
+  <p>
+    <strong>Visitas:</strong>
+    <%= @store.visits_count %>
+  </p>
+  <% if user_signed_in? %>
+  <% if current_user.id == @store.user.id %>
+  <%= link_to 'Edit', edit_store_path(@store) %> |
+  <% end %>
+  <% end %>
+  <%= link_to 'Back', stores_path %>
+  </div>
+</div>
