@@ -1,6 +1,7 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy] 
   before_action :authenticate_user!, except: [:show, :index]
+  before_filter :require_permission, only: [:edit, :delete]
 
   # GET /stores
   # GET /stores.json
@@ -72,5 +73,12 @@ class StoresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
       params.require(:store).permit(:user_id, :name, :category, :description)
+    end
+
+    def require_permission
+      if current_user != Store.find(params[:id]).user
+        redirect_to root_path
+      #Or do something else here
+      end
     end
 end
