@@ -2,12 +2,14 @@
  <div class="page-header">
   <div class="row">
     <div class="col-md-12">
-        <div class="bg-picture" style="background-image:url('http://www.tiaralabuan.com/images/seafood.jpg')">
+        <div class="bg-picture" style="background-image:url('<%= @store.background_image %>')">
           <span class="bg-picture-overlay"></span><!-- overlay -->
           <!-- meta -->
           <div class="box-layout meta bottom">
             <div class="col-md-6 clearfix">
-              <span class="img-wrapper pull-left m-r-15"><img src="https://scontent-mia1-1.xx.fbcdn.net/t31.0-8/10498482_10152476499769757_2259911928329161630_o.png" alt="" style="width:64px" class="br-radius"></span>
+              <span class="img-wrapper pull-left m-r-15">
+                <img src="<%= @store.logo %>" alt="" style="width:64px" class="br-radius">
+              </span>
               <div class="media-body">
                 <h3 class="text-white mb-2 m-t-10 ellipsis sombreado"><%= @store.name %></h3>
                 <h5 class="text-white sombreado"> <%= @store.category %></h5>
