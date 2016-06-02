@@ -1,4 +1,7 @@
 class Store < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
 	validates :name, presence: true
 	validates :category, presence: true
 	validates :description, presence: true
