@@ -6,7 +6,11 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.json
   def index
-    @stores = Store.all
+    if params[:search]
+      @stores = Store.find_by_sql(["SELECT * FROM stores WHERE name LIKE :src ", {:src => params[:search]}])   
+    else
+      @stores = Store.all
+    end
   end
 
   # GET /stores/1
