@@ -7,7 +7,9 @@ class StoresController < ApplicationController
   # GET /stores.json
   def index
     if params[:search]
-      @stores = Store.find_by_sql(["SELECT * FROM stores WHERE name LIKE :src ", {:src => params[:search]}])   
+      @par = params[:search]
+      @str = "%#{@par.gsub('%', '\%').gsub('_', '\_')}%"
+      @stores = Store.find_by_sql(["SELECT * FROM stores WHERE name LIKE ? ", @str])   
     else
       @stores = Store.all
     end
