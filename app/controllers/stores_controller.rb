@@ -76,7 +76,7 @@ class StoresController < ApplicationController
     end
 
     def require_permission
-      if current_user != Store.find(params[:id]).user
+      if current_user != Store.friendly.find(params[:id]).user
         redirect_to root_path
       #Or do something else here
       end
