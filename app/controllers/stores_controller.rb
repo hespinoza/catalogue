@@ -15,6 +15,10 @@ class StoresController < ApplicationController
     end
   end
 
+  def mystores
+    @stores = current_user.stores
+  end
+
   # GET /stores/1
   # GET /stores/1.json
   def show
