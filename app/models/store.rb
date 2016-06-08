@@ -7,6 +7,7 @@ class Store < ActiveRecord::Base
 	validates :description, presence: true
   belongs_to :user
   before_save :set_visits_count
+  validates :slug, uniqueness: true
 
   def update_visits_count
   	self.save if self.visits_count.nil?
