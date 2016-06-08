@@ -29,7 +29,17 @@ window.setTimeout(function() {
 <%= render "partials/navbar" %>
 	<div class="notice alert-warning " role="alert"><center><strong><%= notice %></strong></center></div>
 	<div class="notice alert-danger " role="alert"><center><strong><%= alert %></strong></center></div>
-
+  <% unless @store.nil?%>
+  <% if @store.errors.any? %>
+    <div class="alert alert-danger" role="alert"">
+      <ul>
+      <% @store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% end %>
     <%= yield %>
    
     <%= render "partials/footer" %>   

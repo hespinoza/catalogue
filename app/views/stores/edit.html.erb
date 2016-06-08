@@ -1,6 +1,16 @@
-<h1>Editing Store</h1>
+<div class="container">
+<div class="page-header">
+  <h1>Editar Tienda</h1>
+</div>
 
 <%= render 'form' %>
+<div class="btn-group col-lg-12 col-md-12 col-sm-12 col-xs-12" role="group">
+  <div class="btn-group" role="group">
+    <%= link_to 'Ver Tienda', @store, class: "btn btn-default", type: "button" %>
+  </div>
+  <div class="btn-group" role="group">
+    <%= link_to 'Volver', stores_path, class: "btn btn-default", type: "button" %>
+  </div>
+</div>
 
-<%= link_to 'Show', @store %> |
-<%= link_to 'Back', stores_path %>
+</div>
