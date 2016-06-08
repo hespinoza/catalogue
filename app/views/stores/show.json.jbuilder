@@ -1,1 +1,1 @@
-json.extract! @store, :id, :user_id, :name, :category, :description, :created_at, :updated_at, :logo, :background_image
+json.extract! @store, :id, :user_id, :name, :category, :description, :created_at, :updated_at, :logo, :background_image, :slug

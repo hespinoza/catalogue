@@ -3,7 +3,40 @@
   <h1>Editar Tienda</h1>
 </div>
 
-<%= render 'form' %>
+<div class=" jumbotron col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<%= form_for(@store) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, "Nombre" %><br>
+    <%= f.text_field :name, autofocus: true, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category, "Categoria" %><br>
+    <%= f.text_field :category, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, "Descripción" %><br>
+    <%= f.text_area :description, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :logo, "Logo" %><br>
+    <%= f.text_field :logo, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :background_image, "Imagen de Fondo" %><br>
+    <%= f.text_field :background_image, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :slug, "Ruta de enlace" %><br>
+    <%= f.text_field :slug, class:"form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Editar", class:"btn btn-primary" %>
+  </div>
+<% end %>
+</div>
+
+
 <div class="btn-group col-lg-12 col-md-12 col-sm-12 col-xs-12" role="group">
   <div class="btn-group" role="group">
     <%= link_to 'Ver Tienda', @store, class: "btn btn-default", type: "button" %>
