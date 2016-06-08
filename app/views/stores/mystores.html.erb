@@ -18,7 +18,7 @@
             <div class="media-body">
               <h3 class="media-heading"><%= store.name %></h3>
               <h5 class="text-right"><%= store.category %></h5>
-              <p><%= truncate(store.description, length: 80) %></p>
+              <p>http://localhost:3000/stores/<%= store.slug %></p>
               <div class="col-lg-4 col-md-2 col-sm-2 col-xs-6">
                   <%= link_to 'Ver', store, class:"btn btn-primary" %>
               </div>
