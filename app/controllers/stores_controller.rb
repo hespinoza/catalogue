@@ -23,6 +23,7 @@ class StoresController < ApplicationController
   # GET /stores/1.json
   def show
     @store.update_visits_count
+    @product = Product.new
   end
 
   # GET /stores/new

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :stores
+  resources :stores do
+    resources :products
+  end
   devise_for :users
   get 'landing/index'
 
