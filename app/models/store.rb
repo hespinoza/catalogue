@@ -1,7 +1,7 @@
 class Store < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
-
+  has_many :products
 	validates :name, :presence => { :message => " no puede estar vacío" }
 	validates :category, presence: true
 	validates :description, presence: true

@@ -53,4 +53,19 @@
   <% end %>
   <%= link_to 'Back', stores_path %>
   </div>
+
+  <div class="jumbotron">
+  <p>
+    <strong>Crear Producto:</strong>
+  </p>
+    <%= render "products/form" %>
+  </div>
+
+  
+    <% @store.products.each do |product| %>
+      <div class="jumbotron col-lg-3 col-md-3 col-sm-6 col-xs-6">
+        <%= product.name %> - <%= product.store.name %>
+      </div>
+    <% end %>
+  
 </div>

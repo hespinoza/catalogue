@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_store
+  before_action :authenticate_user!
   # GET /products
   # GET /products.json
   def index
@@ -24,11 +25,11 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
-
+    @product = current_user.products.new(product_params)
+    @product.store = @store 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product.store, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -62,6 +63,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+    def set_store
+      @store = Store.friendly.find(params[:store_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
